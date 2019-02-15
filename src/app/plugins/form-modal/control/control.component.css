@@ -1,0 +1,14 @@
+.sg-title {
+  font-size: 16px;
+}
+.send{
+  display:inline-block;
+  margin-right: 15px;
+}
+.send input{
+  vertical-align: -3px;
+  margin:0 2px;
+}
+nz-date-picker, nz-month-picker, nz-range-picker, nz-week-picker {
+  margin: 0 8px 12px 0;
+}

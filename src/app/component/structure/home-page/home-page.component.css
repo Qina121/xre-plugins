@@ -1,0 +1,96 @@
+h2, h3 {
+  font-weight: 600;
+}
+
+ul {
+  padding-left: 0;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.ibox {
+  margin-top: 20px;
+  margin-bottom: 0;
+  
+}
+
+.ibox-title, .ibox-content {
+  outline: 1px solid #e7eaec;
+}
+
+.ibox-part-content {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 5px;
+}
+
+.font-bold {
+  font-size: 24px;
+}
+
+.list-group-item.xma-list-item {
+  border: none;
+  padding: 15px 0;
+  font-size: 16px;
+}
+
+.xma-ibox {
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+.xma-font {
+  width: 100%;
+}
+
+.big-font {
+  text-align: center;
+  font-size: 64px;
+  padding: 90px 0;
+  font-weight: 600;
+}
+
+.big-font small {
+  font-size: 18px;
+}
+
+.interval a {
+  width: 80px;
+}
+
+.Mt {
+  margin-bottom: 4px;
+}
+
+.xma-interval.active {
+  background: #18a689;
+  color: #fff;
+}
+
+@media (max-width: 1500px) {
+  .ibox-part-content {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .interval a {
+    width: 40px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 15px;
+  }
+  .marketingIndex {
+    padding: 0;
+  }
+  .marketingIndexBox {
+    padding: 0 5px 0;
+  }
+  .matterFont {
+    font-size: 30px;
+  }
+}

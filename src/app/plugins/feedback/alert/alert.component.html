@@ -1,0 +1,139 @@
+
+    <!-- <div [@fade]='fade' [ngClass]="{'alertHide': alertHide,'alertShow': alertShow}" class="modaltip modalone" *ngIf="alertopt.type == 'notes'">
+        <div class="notes">
+            <div class="title">
+                <i class="fa fa-check-circle check"></i>
+                <div class="desc">{{alertopt.text}}</div>
+                <div class="button">{{alertopt.cancelButtonText}}</div>
+            </div>
+            <div class="content"></div>
+        </div>
+    </div> -->
+    <div [ngClass]="{'alertHide': alertHide,'alertShow': alertShow}" class="modaltip modaltwo" *ngIf="alertopt.type === 'warning'">
+        <div class="delenotes">
+            <div>
+                <div class="icon">
+                    <div class="iconCircle emptyCircle" *ngIf="alertopt.iconType === 'empty'">
+                        <i class="icon iconfont icon-qingkong qingkong"></i>
+                    </div>
+                    <div class="iconCircle trashCircle" *ngIf="alertopt.iconType === 'trash'">
+                        <i class="fa fa-trash trash"></i>
+                    </div>
+                    <i class="fa fa-exclamation-circle check exclamation" *ngIf="alertopt.iconType === 'exclamation'"></i>
+                    <!-- <i class="fa fa-question-circle question" *ngIf="alertopt.type === 'question'"></i>  -->
+                </div>
+                    
+            </div>
+            <div class="title titleCenter">
+                <!-- <i class="fa fa-question-circle question"></i> -->
+                <div class="desc mindesc">{{alertopt.title}}</div>
+                <div class="text">{{alertopt.text}}</div>
+            </div>
+            <div class="content"></div>
+            <div class="footer">
+                <div>
+                    <div class="button cancel" tabindex="2" (click)="onCancel()" *ngIf="alertopt.showCancelButton">{{alertopt.cancelButtonText}}</div>
+                    <div class="button sure" tabindex="1" (click)="onConfirm()">{{alertopt.confirmButtonText}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div [ngClass]="{'alertHide': alertHide,'alertShow': alertShow}" class="modaltip modaltwo" *ngIf="alertopt.type === 'warningtip'">
+        <div class="delenotes">
+            <div class="icon">
+                <i class="fa fa-exclamation-circle check exclamation"></i>
+            </div>
+            <div class="title warningtipTitle titleCenter">
+                <div class="desc mindesc">{{alertopt.title}}</div>
+                <div class="text">{{alertopt.text}}</div>
+            </div>
+            <div class="content"></div>
+            <div class="footer">
+                <div>
+                    <!-- <div class="button cancel" tabindex="2" (click)="onCancel()" *ngIf="alertopt.showCancelButton">{{alertopt.cancelButtonText}}</div> -->
+                    <div class="button sure" tabindex="1" (click)="onConfirm()">{{alertopt.confirmButtonText}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="alertYellow modalthree" *ngIf="alertopt.type == 'alertYellow'">
+        <div class="title">
+            <div>
+                <i class="fa fa-exclamation-circle check"></i>
+            </div>
+            <div class="desc">{{alertopt.text}}</div>
+        </div>
+        <div class="button" (click)="cancel()">{{alertopt.cancelButtonText}}</div>
+    </div> -->
+    <!-- <div class="alertYellow alertGreen modalfour" *ngIf="alertopt.type == 'alertGreen'">
+        <div class="title">
+            <div>
+                <i class="fa fa-exclamation-circle check"></i>
+            </div>
+            <div class="desc">{{alertopt.text}}</div>
+        </div>
+    </div> -->
+    <div [@fade]='fade' [ngClass]="{'alertHide': alertHide,'alertShow': alertShow}" class="modaltip modalfive" *ngIf="alertopt.type === 'revocation'">
+        <div class="notes success ">
+            <div class="title">
+                <i class="fa fa-check-circle check"></i>
+                <div class="desc">{{alertopt.title}}</div>
+                <div class="revocation" (click)="onConfirm()">撤销</div>
+            </div>
+        </div>
+    </div>
+    <div [@fade]='fade' [ngClass]="{'alertHide': false,'alertShow': true}" class="modaltip modalfive" *ngIf="alertopt.type === 'success'">
+        <div class="notes success">
+            <div class="title">
+                <i class="fa fa-check-circle check"></i>
+                <div class="desc">{{alertopt.title}}</div>
+                <div class="cancleButton" (click)='cancleButton()'>{{alertopt.cancleButton}}</div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div [@fade]='fade' [ngClass]="{'alertHide': alertHide,'alertShow': alertShow}" class="modaltip modalsix" *ngIf="alertopt.type === 'info'">
+        <div class="notes tip">
+            <div class="title">
+                <i class="fa fa-exclamation-circle check"></i>
+                <div class="desc">{{alertopt.title}}</div>
+                <div class="cancleButton" (click)='cancleButton()'>{{alertopt.cancleButton}}</div>
+            </div>
+        </div>
+    </div>
+  
+    
+    <div  [@fade]='fade' [ngClass]="{'alertHide': alertHide,'alertShow': alertShow}" class="modaltip modalseven" *ngIf="alertopt.type === 'error'">
+        <div class="notes warning">
+            <div class="title">
+                <i class="fa fa-times-circle check"></i>
+                <div class="desc">{{alertopt.title}}</div>
+                <!-- <div class="cancleButton" (click)='cancleButton()'>{{alertopt.cancleButton}}</div> -->
+            </div>
+            <div class="text errorText">{{alertopt.text}}</div>
+        </div>
+    </div>
+    <!-- <div class="modaltip modaleight" *ngIf="alertopt.type == 'delenotesTip'">
+        <div class="delenotes delenotesTip">
+            <div class="title">
+                <div class="left">
+                    <i class="fa fa-times-circle question"></i>
+                    <div class="desc">{{alertopt.text}}</div>
+                </div>
+                <div class="right">
+                    <div (click)="cancel()">+</div>
+                </div>
+            </div>
+            <div class="content">
+                为防止邮件报表丢失，营销效果不可追踪给您带来的麻烦，已发送的邮件暂时不能删除！
+            </div>
+            <div class="footer">
+                <div>
+                    <div class="button cancel" (click)="onCancel()" *ngIf="alertopt.showCancelButton">{{alertopt.cancelButtonText}}</div>
+                    <div class="button sure" (click)="onConfirm()">{{alertopt.confirmButtonText}}</div>
+                </div>
+            </div>
+        </div>
+    </div> -->

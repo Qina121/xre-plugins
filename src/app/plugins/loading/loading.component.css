@@ -1,0 +1,22 @@
+.mark {
+  background: #000;
+  opacity: .6;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.sk-spinner-fading-circle.sk-spinner {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  margin-top: -50px;
+  margin-left: -50px;
+  z-index: 10000;
+}

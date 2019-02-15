@@ -1,0 +1,92 @@
+<div>
+  <div class="row marginBottom-10 marginLeft-0 cascade-condition">
+    <div class="col-sm-3 col-xs-10 padding-0">
+      <xma-select2 #fieldDropDown [items]="fieldData" [name]="'field'" [placeholder]="memberDefault?memberDefault:'-请选择-'"
+        [isDefaultSort]="false" [allowClear]="true" (removed)="clearComparison($event)" [hidden]="moduleType=== 'memberSrc' ? true: false"
+        (selected)="fieldChange($event)" [selective]='selective'>
+      </xma-select2>
+      <div *ngIf="moduleType=== 'memberSrc' ? true: false" style="position: relative;top: 5px;font-size: 15px">请选择会员来源：</div>
+    </div>
+    <div class="col-sm-3 col-xs-10 filter-type">
+      <select class="form-control comparisonSelect" [ngClass]="{'memberProp': moduleType === 'memberProp', 'orderProp': moduleType === 'orderProp',
+            'goodsProp': moduleType === 'goodsProp', 'marketProp': moduleType === 'marketProp', 'memberSource': moduleType === 'memberSrc'}"
+        (change)="comparisonChange($event.target)" [(ngModel)]="comparisonId">
+        <option value="0">-请选择-</option>
+        <option *ngFor="let opt of comparison" [value]="opt.id" [attr.comparison-type]="opt.type">
+          {{opt.text}}
+        </option>
+      </select>
+    </div>
+    <div class="col-sm-3 col-xs-10 padding-0" [ngSwitch]="comparisonType">
+      <div *ngSwitchCase="'dropdown'">
+        <xma-select2 #contentDropDown [items]="dropdownList" [name]="'content'" [placeholder]="'-请选择-'" [multiple]="true"
+          [isDefaultSort]="false">
+        </xma-select2>
+      </div>
+      <div *ngSwitchCase="'datetime-range'" class="datetime-range">
+        <span style="display: inline-block">
+          <nz-date-picker *ngIf="true" [nzDisabledDate]="disabledStartDate" [nzStyle]="{'width':'85px','border-radius':'1px'}"
+            nzShowTime nzFormat="yyyy-MM-dd HH:mm:ss" nzPlaceHolder="" [(ngModel)]="start"></nz-date-picker>
+        </span>-
+        <span style="display: inline-block">
+          <nz-date-picker *ngIf="true" [nzDisabledDate]="disabledStartDate" [nzStyle]="{'width':'85px','border-radius':'1px'}"
+            nzShowTime nzFormat="yyyy-MM-dd HH:mm:ss" nzPlaceHolder="" [(ngModel)]="end"></nz-date-picker>
+        </span>
+      </div>
+      <div *ngSwitchCase="'datetime'">
+        <nz-date-picker [nzDisabledDate]="disabledStartDate" [ngModelOptions]="{standalone: true}" [nzStyle]="{'width':'190px','border-radius':'1px'}"
+          nzFormat="yyyy-MM-dd HH:mm:ss" nzShowTime nzPlaceHolder="" [(ngModel)]="content[0]"></nz-date-picker>
+      </div>
+      <div *ngSwitchCase="'date'">
+        <nz-date-picker *ngIf="true" [nzDisabledDate]="disabledStartDate" [nzStyle]="{'width':'190px','border-radius':'1px'}"
+          nzShowTime nzFormat="yyyy-MM-dd HH:mm:ss" nzPlaceHolder="" [(ngModel)]="content[0]"></nz-date-picker>
+      </div>
+      <div *ngSwitchCase="'date-range'" class="date-range">
+        <span style="display: inline-block">
+          <nz-date-picker *ngIf="true" [nzDisabledDate]="disabledStartDate" [nzStyle]="{'width':'90px','border-radius':'1px'}"
+            nzShowTime nzFormat="yyyy-MM-dd HH:mm:ss" nzPlaceHolder="" [(ngModel)]="start"></nz-date-picker>
+        </span>-
+        <span style="display: inline-block">
+          <nz-date-picker *ngIf="true" [nzDisabledDate]="disabledStartDate" [nzStyle]="{'width':'90px','border-radius':'1px'}"
+            nzShowTime nzFormat="yyyy-MM-dd HH:mm:ss" nzPlaceHolder="" [(ngModel)]="end"></nz-date-picker>
+        </span>
+      </div>
+      <div *ngSwitchCase="'number-range'" class="number-range">
+        <input type="number" [(ngModel)]="start" (change)="startNumChange($event)" min="0"> -
+        <input type="number" [(ngModel)]="end" (change)="endNumChange($event)" min="0">
+      </div>
+      <div *ngSwitchCase="'number'">
+        <input type="number" class="form-control" [(ngModel)]="oneNum" (change)="oneNumChange($event)" min="0">
+      </div>
+      <div *ngSwitchCase="'input'">
+        <input class="form-control" [(ngModel)]="content[0]">
+      </div>
+      <div *ngSwitchCase="'empty'"></div>
+      <div *ngSwitchCase="'input-dropdown'">
+        输入下拉类型
+      </div>
+      <div *ngSwitchCase="'input-select'">
+        <div>
+          <input style="width: 100px;float: left;margin-right: 10px;" class="form-control" type="number" [(ngModel)]="content[0]">
+          <select [(ngModel)]="content[1]" style="width: 65px;float: left;" class="form-control">
+            <option *ngFor="let item of timeList" [value]="item.id">{{ item.text}}</option>
+          </select>
+        </div>
+      </div>
+      <div #dropdownTree *ngSwitchCase="'dropdown-tree'">
+        <nz-cascader [nzLabelProperty]="'text'"
+        [nzValueProperty]="'id'" nzChangeOnSelect [nzOptions]="dropdownList" [nzMenuStyle]="{'left': '-100px'}" [nzPlaceHolder]="'请选择'"
+          [(ngModel)]="values"  [nzShowSearch]="true" (ngModelChange)="onChanges($event)">
+        </nz-cascader>
+      </div>
+    </div>
+    <div class="col-sm-1 col-xs-12 nav-del">
+      <a href="javascript:void(0);" class="addCondition" (click)="addCurCondition()">
+        <i class="fa fa-plus"></i>
+      </a>
+      <a href="javascript:void(0);" class="delCondition" (click)="delCurCondition()" *ngIf="conditionNumber.length>1 || hasDelBtn">
+        <i class="fa fa-trash"></i>
+      </a>
+    </div>
+  </div>
+</div>

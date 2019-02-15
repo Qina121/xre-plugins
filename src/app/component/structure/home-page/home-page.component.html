@@ -1,0 +1,121 @@
+<div class="row  border-bottom white-bg dashboard-header text-center">
+  <div class="contact-box-footer">
+    <div class="row">
+      <div class="m-t-xs btn-group interval">
+        <a class="btn btn-white xma-interval " [class.active]="isSelOneInterval[0]"
+            (click)="getOneInterval('year',0)">年</a>
+        <a class="btn btn-white xma-interval " [class.active]="isSelOneInterval[1]"
+            (click)="getOneInterval('quarter',1)">季</a>
+        <a class="btn btn-white xma-interval " [class.active]="isSelOneInterval[2]"
+            (click)="getOneInterval('month',2)">月</a>
+        <a class="btn btn-white xma-interval " [class.active]="isSelOneInterval[3]"
+            (click)="getOneInterval('week',3)">周</a>
+      </div>
+    </div>
+    
+  </div>
+  <div class="col-sm-3">
+    <h2>营业指数</h2>
+    <ul class="list-group clear-list m-t">
+      <li class="list-group-item xma-list-item" *ngFor="let row of brandIndex">
+        <span>{{row?.name}}:</span><span style="font-size: 18px">{{row?.count}}</span>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-9 marketingIndexBox">
+    <h2>营销指数</h2>
+    <div class="row">
+      <div class="col-xs-4 marketingIndex" *ngFor="let row of marketingIndexes">
+        <div class="ibox">
+          <div class="ibox-title">
+            <h3>{{row?.name}}</h3>
+          </div>
+          <div class="ibox-content">
+            <div class="ibox-part-content">
+              <div *ngIf="!loadBool">
+                <span>加载中...</span>
+              </div>
+              <div *ngIf="loadBool">
+                <span>{{selDuration?.previous}}:</span><span style="font-size: 16px">{{row?.previous}}</span>
+              </div>
+              <div *ngIf="loadBool">
+                <span>{{selDuration?.current}}:</span><span style="font-size: 16px">{{row?.current}}</span>
+              </div>
+            </div>
+            <div class="ibox-part-content" *ngIf="row?.scale>0">
+              <div class="font-bold text-navy">{{row?.scale}}% <i class="fa fa-level-up"></i></div>
+            </div>
+            <div class="ibox-part-content" *ngIf="row?.scale==0">
+              <div class="font-bold text-warning">{{row?.scale}}%</div>
+            </div>
+            <div class="ibox-part-content" *ngIf="row?.scale<0">
+              <div class="font-bold text-danger">{{getAbs(row?.scale)}}% <i class="fa fa-level-down"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row  border-bottom white-bg dashboard-header text-center">
+  <div class="contact-box-footer Mt">
+    <div class="m-t-xs btn-group">
+      <a class="btn btn-white xma-interval" [class.active]="isSelMt[1]" (click)="getMt('mail',1)">邮件营销</a>
+      <a class="btn btn-white xma-interval" [class.active]="isSelMt[2]" (click)="getMt('sms',2)">短信营销</a>
+    </div>
+  </div>
+  <div class="contact-box-footer">
+    <div class="m-t-xs btn-group interval">
+      <a class="btn btn-white xma-interval" [class.active]="isSelInterval[0]" (click)="getInterval('year',0)">年</a>
+      <a class="btn btn-white xma-interval" [class.active]="isSelInterval[1]" (click)="getInterval('quarter',1)">季</a>
+      <a class="btn btn-white xma-interval" [class.active]="isSelInterval[2]" (click)="getInterval('month',2)">月</a>
+      <a class="btn btn-white xma-interval" [class.active]="isSelInterval[3]" (click)="getInterval('week',3)">周</a>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="ibox" (click)="toPage(1)">
+      <div class="ibox-content product-box xma-ibox">
+        <div class="ibox-title">
+          <h3 class="xma-font">待编辑</h3>
+        </div>
+        <div class="ibox-content">
+          <div class="big-font matterFont ">
+            {{toEdit}}
+            <small>个</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="ibox" (click)="toPage(4)">
+      <div class="ibox-content product-box xma-ibox">
+        <div class="ibox-title">
+          <h3 class="xma-font">待执行</h3>
+        </div>
+        <div class="ibox-content">
+          <div class="big-font matterFont">
+            {{toPerform}}
+            <small>个</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="ibox" (click)="toPage(101)">
+      <div class="ibox-content product-box xma-ibox">
+        <div class="ibox-title">
+          <h3 class="xma-font">已完成</h3>
+        </div>
+        <div class="ibox-content">
+          <div class="big-font matterFont">
+            {{completed}}
+            <small>个</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.left {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.left span {
+  background: #fff;
+  padding: 8px;
+  margin-right: 4px;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid #1ab394;
+}
+
+.condition-relation-line {
+  display: flex;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(100%, #d2d4d4), to(#d2d4d4));
+  background: linear-gradient(0, #d2d4d4 100%, #d2d4d4 100%);
+  background-size: 3px;
+  background-repeat: repeat-y;
+  background-position-x: 15px;
+}
+
+.right {
+  width: 100%;
+}

@@ -1,0 +1,19 @@
+<div *ngIf="isShowDrawerOrModal=== 'drawer'">
+  <nz-drawer [nzClosable]="false" [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom':'53px' }"[nzMaskClosable]="false" [nzWidth]="720" [nzVisible]="visible" [nzTitle]="title" (nzOnClose)="close()">
+    <div class="two_level_prompt">{{subtitle}}</div>
+    <xma-control #modalControl *ngFor="let control of controls;" [control]="control" [form]="form" (submit)="onSubmit($event)"></xma-control>
+    <div class="footer">
+      <button type="button"class="ant-btn" *ngFor="let btn of footerButtons;" [ngStyle]="btn.style" (click)="onClickBtn(btn.eventNmae)" >{{ btn.text }}</button>
+    </div>
+  </nz-drawer>
+</div>
+<div *ngIf="isShowDrawerOrModal=== 'modal'">
+  <nz-modal [(nzVisible)]="visible" [nzTitle]="title" [nzFooter]="modalFooter" (nzOnCancel)="close()" [nzWidth]="nzWidth">
+     <xma-control #modalControl *ngFor="let control of controls;" [control]="control" [form]="form"></xma-control>
+     <ng-template #modalFooter>
+      <button type="button" class="ant-btn" *ngFor="let btn of footerButtons;" [ngStyle]="btn.style" (click)="onClickBtn(btn.eventNmae)" [disabled]= 'btn.state'>{{ btn.text }}</button>
+    </ng-template>
+  </nz-modal>
+</div>
+
+

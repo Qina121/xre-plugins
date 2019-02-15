@@ -1,0 +1,80 @@
+<nz-layout>
+    <nz-sider style="background:#2f4050;position: fixed;" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate">
+      <div class="logo">
+        <a routerLink="/index" name="index">
+          <img alt="image" class="img-circle" [src]="!isCollapsed ? 'assets/img/logo.png': 'assets/img/x.png'"
+                style="border-radius: 0;" [ngStyle]="{width:!isCollapsed ? '120px': '28px',height:!isCollapsed ? '40px': '28px', marginLeft: isCollapsed ? 'none': '10px'}"></a>
+      </div>
+      <ul nz-menu [ngStyle]="{height: height + 'px',background:'#2f4050'}" [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
+        <li nz-submenu *ngFor="let firstRouting of menus;let _index = index" [ngStyle]="{display: firstRouting.isShow? 'block': 'none'}">
+          <span title><i nz-icon class="{{firstRouting.icon}}" style="margin-right: 5px;"></i><span class="nav-text" *ngIf="!isCollapsed">{{firstRouting.title}}</span></span>
+          <ul>
+            <li nz-menu-item *ngFor="let twoRouting of firstRouting.navs;let _index = index" [ngStyle]="{display: twoRouting.isShow? 'block': 'none'}">
+              {{twoRouting.title}}
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header style="background: RGB(243,243,244); padding:0;">
+        <i class="trigger" [ngStyle]="{position: 'fixed',left:!isCollapsed ? '195px': '73px'}" nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'" (click)="isCollapsed=!isCollapsed"></i>
+        <ul class="nav navbar-top-links navbar-right">
+          <li [ngStyle]="{background: isUser? 'none': '#fff',padding: '0 7px'}">
+            <span (click)="toggleUser()"><i class="fa fa-user"></i>{{userName}}</span>
+            <i class="fa" [ngClass]="{'fa-sort-desc':isUser, 'fa-sort-asc':!isUser }" (click)="toggleUser()"></i>
+            <ul class="userSetting" *ngIf="!isUser">
+                <li>
+                  <p class="name">余额:</p>
+                  <p class="value">{{remainAmount}}</p>
+                </li>
+                <li>
+                  <p class="name">最近登录时间:</p>
+                  <p class="value">{{lastLoginTime}}</p>
+                </li>
+                <li>
+                  <p id="changePwd" (click)="changePwd()">更改密码</p>
+                </li>
+              </ul>
+          </li>
+          <li style="margin-left: 20px;">
+            <span (click)="logout()"><i class="fa fa-sign-out"></i>退出</span>
+          </li>
+        </ul>
+      </nz-header>
+      <nz-header *ngIf="showBreadCrumb" [ngStyle]="{background: '#fff',paddingLeft: '20px',height: '55px',lineHeight: '55px',marginBottom: '10px', marginLeft: !isCollapsed?'200px':'80px'}">
+        <nz-breadcrumb style="margin:16px 0;">
+          <nz-breadcrumb-item *ngFor="let item of _FrameService.crumbNavigations;">
+            <a [routerLink]="[item.link]">{{item.term}}</a>
+          </nz-breadcrumb-item>
+          <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+        </nz-breadcrumb>
+      </nz-header>
+      <nz-content style="margin:0 16px;">
+        <div [ngStyle]="{padding:'24px',background: '#fff', marginLeft: !isCollapsed?'200px':'80px'}">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+
+      <div class="test" style="position:absolute;left:20px;top:450px;">
+        <xma-form-modal-demo></xma-form-modal-demo>
+      </div>
+    
+      <nz-footer style="text-align: center;">
+        <div>
+            <strong>Copyright</strong> Xrewin Company © 2016-2019 京ICP备16009175号-1
+            <div style="display: inline;margin-left: 5px;">
+              <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010102002282"
+                style="text-decoration:none;color: #676a6c;">
+                <img src="assets/img/record.png" style="margin-top: -4px;">
+                <span>京公网安备11010102002282号</span>
+              </a>
+            </div>
+          </div>
+      </nz-footer>
+    </nz-layout>
+  </nz-layout>
+  <ng-template #trigger>
+    <i nz-icon type="up"></i>
+  </ng-template>
+

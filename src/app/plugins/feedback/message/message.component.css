@@ -1,0 +1,78 @@
+.messageBox{
+    margin-top: 10px;
+    /* position: fixed;
+    top: 20px;
+    left: 50%;  
+    z-index: 9999; */
+}
+.messageBox .box{
+    /* width: 200px; */
+    display: inline-block;
+    padding: 10px 30px;
+    /* height: 40px; */
+    box-shadow: 0 0 5px #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.8);
+    /* margin: 10px 0; */
+    line-height: 20px;
+    text-align: center;
+}
+.icon{
+    color: #40a9ff;
+    margin-right: 10px;
+    font-size: 16px;
+}
+.messageHide{
+    display: none;
+}
+.messageShow{
+    display: block;
+}
+.success .icon{
+    color: #52c41a;
+}
+.info .icon{
+    color: #faad14;
+}
+.error .icon{
+    color: #f5222d;
+}
+.notes .icon{
+    color: #40a9ff;
+}
+.revocat{
+    background-color: #fff;
+    box-shadow: 0 0 5px #ccc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.revocat i {
+    color: #52c41a;
+    margin-right: 10px;
+}
+.revocat div{
+    display: inline-block;
+}
+.revocation{
+    margin-left: 20px;
+    color: #52c41a;
+}
+.text{
+    text-align: center;
+    /* margin-top: -10px; */
+    line-height: 20px;
+}
+.maskOpacity{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: yellow;
+}
+.errorText{
+    /* padding-bottom: 10px; */
+    min-width:140px;
+}

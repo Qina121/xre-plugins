@@ -1,0 +1,76 @@
+<div>
+  <!-- <div class="gray"></div> -->
+  <div id="LoginMain">
+    <div id="login">
+      <!--左边开始-->
+      <!-- <div id="Left" class="col-md-6 Left col-sm-6">
+        <img src="assets/img/login_img.jpg"/>
+        <h3>{{title}}</h3>
+        <div>Copyright Xrewin Company&copy; 2016-2017</div>
+        <div>京ICP备16009175号-1</div>
+        <div>
+          <a target="_blank"
+             href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010102002282"
+             style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+            <img src="assets/img/record.png" style="float:left;"/>
+            <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">京公网安备
+              11010102002282号</p>
+          </a>
+        </div>
+      </div> -->
+      <!--左边结束-->
+
+      <!-- 左侧描述 -->
+      <!-- <div class="col-md-5 Left col-sm-5">
+        <h3 class="leftTitle">欢迎使用易回眸智能营销平台</h3>
+        <div class="brief">
+          <div>营销自动化以大数据架构为基础</div>
+          <div>面对海量会员自动化执行、完成各类复杂的营销场景、流程、数据分析等工作的云端企业级应用</div>
+        </div>
+      </div> -->
+      <!-- 左侧描述结尾 -->
+
+      <!--右边开始-->
+      <!-- class="col-md-6 Right col-sm-6" -->
+      <div id="Right" class="Right col-md-7 Right col-sm-7">
+        <div style="width:300px;margin:0 auto;margin-top:68px">
+          <!-- <h3>{{loginName}}</h3> -->
+
+        <form id="loginForm" class="m-t" role="form" [formGroup]="loginForm" enctype="multipart/form-data">
+
+          <p>
+            <span class="userNameIcon"></span>
+            <input type="text" class="txt txt1" [formControlName]="'userName'" placeholder="{{useName}}"
+                   autofocus/>
+          </p>
+          <p>
+            <span class="passwordIcon"></span>
+            <input type="password" class="txt txt2" [formControlName]="'password'" id="Password"
+                   placeholder="{{pwd}}"
+                   />
+          </p>
+          <p class="chkp checkbox m-r-xs">
+            <!-- <a href="#">
+               <small>{{forgetPwd}}</small>
+             </a>-->
+
+            <input type="checkbox" id="ckRememberMe" [formControlName]="'rememberMe'" value="true" checked=""/>
+            <label for="ckRememberMe">{{loginTime}}</label>
+          </p>
+
+          <p class="but">
+            <button (click)="login()">{{loginName}}</button>
+          </p>
+        </form>
+        </div>
+      </div>
+      <!--右边结束-->
+
+    </div>
+  </div>
+</div>
+<!-- <canvas #canvas id="cas" [attr.width]=cWidth [attr.height]=cHeight style="position: absolute; top: 0;" (window:resize)="onResize()" (mouseover) = "come($event)" (mouseout) = "out($event)"></canvas> -->
+<div id="bgLogin">
+
+</div>
+

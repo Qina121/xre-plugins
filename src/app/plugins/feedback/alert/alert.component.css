@@ -1,0 +1,269 @@
+.modaltip{
+    /* padding: 3px 30px 5px; */
+    background-color: #fff;
+    box-shadow: 0 0 5px #666;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: left;
+    z-index: 9999;
+}
+.modaltip i{
+    font-size: 16px;
+    /* margin-left: 10px; */
+}
+.title{
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+}
+.title i{
+    margin-right: 10px;
+}
+.title .desc{
+    color: #666;
+    display: inline-block;
+}
+.mindesc{
+    min-width:140px;
+}
+.title .button{
+    color: #17a87f;
+    display: inline-block;
+    cursor: pointer;
+}
+.check{
+    color: #2ac64b;
+}
+.footer{
+    /* height: 30px; */
+    color: #666;
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.footer .button{
+    padding: 2px 10px;
+    box-shadow:  0 0 5px #ccc;
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.footer .button:nth-of-type(2){
+    background-color: #17a87f;
+    color: #fff;
+}
+.question{
+    color: red;
+}
+.delenotes{
+    /* width: 300px; */
+    /* height: 140px; */
+    padding: 20px 30px;
+}
+.delenotes .title{
+    /* width: 210px; */
+}
+.alertYellow{
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    border: 1px solid #ff9a0d;
+    border-radius: 4px;
+    margin: 0 auto;
+    width: 600px;
+    padding: 10px 20px;
+    background-color: #fff;  
+    box-shadow:  0 0 5px #ccc;
+    z-index: 9999;
+}
+.alertYellow .title{
+    line-height: 30px;
+    height: 30px;
+}
+.alertYellow .title i{
+    color: #ff9a0d;
+}
+.alertYellow .title div{
+    float: left;
+}
+.alertYellow .button{
+    padding: 5px 10px;
+    line-height: 20px;
+    box-shadow:  0 0 5px #ccc;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #ff9a0d;
+    float: right;
+    cursor: pointer;
+}
+.alertGreen{
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    border: 1px solid #2aa382;
+    z-index: 9999;
+}
+.alertGreen .title i{
+    color: #2aa382;
+}
+.tip i{
+    color: #ff9a0d;
+}
+.warning i{
+    color: #f5222d;
+}
+.delenotes .left{
+    float: left;
+}
+.delenotes .right{
+    float: right;
+}
+.delenotes .right div{
+    transform: rotateZ(45deg);
+    font-size: 30px;
+    cursor: pointer;
+}
+.delenotesTip .title{
+    width: 300px;
+}
+.delenotesTip .content{
+    width: 300px;
+    text-align:left;
+    color:#ccc;
+}
+.delenotesTip .footer .button{
+    border: 1px solid #2aa382;
+    color: #2aa382;
+    box-shadow: none;
+    cursor: pointer;
+}
+.delenotesTip .footer .button:nth-of-type(2){
+    background-color: #fff; 
+}
+.modalone{
+ /* margin-left: -112px; */
+}
+.modaltwo{
+    /* margin-left: -100px; */
+}
+.modalthree{
+    position: fixed;
+    /* margin-left: -321px; */
+    z-index: 9999;
+}
+.modalfour{
+    /* margin-left: -321px; */
+}
+.modalfive{
+    /* margin-left: -63px; */
+}
+.modalsix{
+    /* margin-left: -84px; */
+}
+.modalseven{
+    /* margin-left: -112px; */
+}
+.modaleight{
+    /* margin-left: -180px; */
+}
+#brick {
+    width: 20rem;
+    height: 10rem;
+    background-color: aqua;
+    margin-left: 0;
+  }
+  .showSweetAlert {
+    display: block;
+  }
+  
+  .hideSweetAlert {
+    display: none;
+  }
+  .alertHide{
+    display: none;
+}
+.alertShow{
+    display: block;
+}
+.cancleButton{
+    color: #ff9a0d;
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.tip .cancleButton{
+    color: #ff9a0d;
+}
+.success .cancleButton{
+    color: #17a87f;
+}
+.error .cancleButton{
+    color: #f5222d;
+}
+.revocation{
+    display: inline-block;
+    margin: 0 10px 0 20px;
+    cursor: pointer;
+}
+.notes{
+    font-size: 14px;
+    padding: 0 10px;
+}
+.text{
+    margin-top: -10px;
+    font-size: 14px;
+    text-align: center;
+}
+.errorText{
+    padding: 0 10px 10px;
+    min-width:140px;
+}
+.sure{
+    background-color: #17a87f;
+    color: #fff;
+}
+.icon{
+    text-align: center;
+    min-width: 300px;
+    margin-bottom: 10px;
+}
+.icon i{
+    font-size: 40px;
+}
+.warningtipTitle{
+    display: block;
+    text-align: center;
+}
+.iconCircle{
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    background-color: #ccc;
+    color: #fff;
+    border-radius: 20px;
+}
+.iconCircle i{
+    font-size: 20px;
+    line-height: 40px;
+    color: #fff;
+}
+.emptyCircle{
+    background-color: #17a87f;
+}
+.trashCircle{
+    background-color: #ec4758;
+}
+.titleCenter{
+    display: block;
+    text-align: center;
+}
+.exclamation{
+    color: #faad14;
+}
+.qingkong{
+    color: #fff;
+}

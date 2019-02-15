@@ -1,0 +1,11 @@
+<div class="dropdown" style="width: 100%;" xmaDropdown>
+    <button  class="btn" [ngClass]="buttonClass" type="button" role="button" xmaDropdownToggle>
+        {{getText()}}
+    </button>
+    <div style="width: 100%;" xmaDropdownMenu aria-labelledby="dropdownMenu" (click)="$event.stopPropagation()">
+        <div class="dropdown-container">
+            <xma-treeview [config]="config" [headerTemplate]="headerTemplate" [items]="items" [itemTemplate]="itemTemplate" (selectedChange)="onSelectedChange($event)">
+            </xma-treeview>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="messageBox">
+    <div class="box info"
+         [@fade]='fade'
+         (@fade.done)="animationDone($event)"
+         [ngClass]="{'messageHide': messageHide,'messageShow': messageShow}"
+         *ngIf="opt.type === 'info'">
+        <i class="fa fa-exclamation-circle check icon"></i><span>{{messagearr}}</span>
+    </div>
+    <div class="box success"
+         [@fade]='fade'
+         (@fade.done)="animationDone($event)"
+         [ngClass]="{'messageHide': messageHide,'messageShow': messageShow}"
+         *ngIf="opt.type === 'success'">
+        <i class="fa fa-check-circle check icon"></i><span>{{messagearr}}</span>
+    </div>
+    <div class="box error"
+         [@fade]='fade'
+         (@fade.done)="animationDone($event)"
+         [ngClass]="{'messageHide': messageHide,'messageShow': messageShow}"
+         *ngIf="opt.type === 'error'">
+        <i class="fa fa-times-circle check icon"></i><span>{{opt.title}}</span><div class="text errorText">{{opt.text}}</div>
+    </div>
+    <div [@fade]='fade'
+         [ngClass]="{'messageHide': messageHide,'messageShow': messageShow}"
+         class="modaltip revocat"
+         *ngIf="opt.type === 'revocation'">
+        <div class="notes success ">
+            <div class="title">
+                <i class="fa fa-check-circle check"></i>
+                <div class="desc">{{opt.title}}</div>
+                <div class="revocation"
+                     (click)="onConfirm()">撤销</div>
+            </div>
+        </div>
+    </div>
+</div>

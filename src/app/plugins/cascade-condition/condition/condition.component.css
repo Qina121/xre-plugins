@@ -1,0 +1,62 @@
+.nav-del {
+  padding: 6px 15px;
+  width: 70px;
+}
+a.addCondition {
+  margin-right: 5px;
+}
+a.delCondition {
+  color: #ed5565;
+}
+.number-range input, .date-range input, .datetime-range input {
+  width: 76px;
+  background-color: #FFFFFF;
+  background-image: none;
+  border: 1px solid #e5e6e7;
+  border-radius: 1px;
+  color: inherit;
+  display: inline-block;
+  padding: 6px 12px;
+  -webkit-transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  /* width: 100%; */
+  font-size: 14px;
+}
+
+.filter-type {
+  padding: 0 10px;
+}
+
+.condition-count {
+  line-height: 34px;
+}
+
+.peo-count {
+  color: #23c6c8;
+  font-size: 13px;
+  padding-right: 4px;
+
+
+
+}
+
+a.addCondition, a.addCondition:hover {
+  color: #1ab394;
+
+}
+/* .cdk-overlay-container {
+  z-index: 10000;
+} */
+@media (max-width: 768px) {
+  .filter-type {
+    padding: 0;
+    margin: 0;
+  }
+}
+/* ::ng-deep .cdk-overlay-pane {
+    position: relative;
+    pointer-events: auto;
+    z-index: 1000;
+} */
+
+

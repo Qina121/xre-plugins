@@ -1,0 +1,88 @@
+<form nz-form [formGroup]="form" [ngSwitch]="_control.controlType" (ngSubmit)="submitForm()">
+  <nz-form-item *ngSwitchCase="'textbox'" style="margin: 10px 0;">
+    <nz-form-label [nzSm]="5" [nzXs]="24" nzFor="{{_control.key}}" nzRequired={{_control.required}}>
+      <span>{{_control.label}}</span>
+    </nz-form-label>
+    <nz-form-control [nzSm]="18" [nzXs]="24">
+      <input nz-input id="{{_control.key}}" formControlName="{{_control.key}}">
+      <nz-form-explain *ngIf="form.get(_control.key).dirty && form.get(_control.key).errors">请填写{{_control.label}}!</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <!-- 下拉选择框 -->
+  <nz-form-item *ngSwitchCase="'textDropdown'" style="margin: 10px 0;">
+    <nz-form-label [nzSm]="5" [nzXs]="24" nzFor="{{_control.key}}" nzRequired={{_control.required}}>
+      <span>{{_control.label}}</span>
+    </nz-form-label>
+    <nz-form-control [nzSm]="18" [nzXs]="24">
+        <!-- <nz-select nzMode="tags" style="width: 100%;" nzPlaceHolder="{{_control.holder}}" [(ngModel)]="listOfTagOptions" [ngModelOptions]="{standalone: true}" nzAllowClear>
+          <nz-option *ngFor="let option of _control.list" [nzLabel]="option.label" [nzValue]="option.value">
+          </nz-option>
+        </nz-select> -->
+        <nz-select style="width: 100%;" formControlName="{{_control.key}}" [(ngModel)]="listOfTagOptions" nzPlaceHolder="{{_control.holder}}"  nzAllowClear>
+          <nz-option id="{{option.key}}" *ngFor="let option of _control.list" [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+          <!-- <nz-option *ngIf="isLoading" nzDisabled nzCustomContent>
+            <i nz-icon type="loading" class="loading-icon"></i> Loading Data...
+          </nz-option> -->
+        </nz-select>
+        <nz-form-explain *ngIf="form.get(_control.key).dirty && form.get(_control.key).errors">请填写{{_control.label}}!</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item *ngSwitchCase="'rangeDateTime'">
+    <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired={{_control.required}}>{{_control.label}}</nz-form-label>
+    <nz-form-control [nzSm]="16" [nzXs]="24">
+      <nz-range-picker nzFormat="yyyy-MM-dd HH:mm:ss" nzShowTime formControlName="{{_control.key}}"></nz-range-picker>
+      <nz-form-explain *ngIf="form.get(_control.key).dirty && form.get(_control.key).errors">请选择{{_control.label}}!</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <!-- (click)="switchTab(filter.icon)" -->
+  <nz-form-item *ngSwitchCase="'memberConditions'" style="margin-left: 10px;">
+    <button *ngFor="let filter of _control.buttons" class="btn" type="button" [ngClass]="{'btn-success': filter.selected,'btn-white':!filter.selected}"
+      (click)="filter.handle(filter,filters)" [title]="filter.value" [disabled]="filter.isDisable">
+      <i class="fa xma-iconfont" [ngClass]="filter.icon"></i>
+    </button>
+    <div *ngFor="let condition of _control.conditions;let _index=index">
+      <label class="sg-title">{{_control.labels[_index]}}</label>
+      <xma-cascade-conditions #cascadeConditions [conditionData]="condition" [moduleType]="_control.moduleTypes[_index]"></xma-cascade-conditions>
+    </div>
+  </nz-form-item>
+  <nz-form-item *ngSwitchCase="'tabs'">
+    <nz-tabset
+      style="height:220px;"
+      [nzTabPosition]="_control.nzTabPosition"
+      [(nzSelectedIndex)]="selectedIndex"
+      (nzSelectChange)="log([$event])">
+      <nz-tab
+        *ngFor="let tab of tabs"
+        [nzTitle]="'和H和'"
+        (nzSelect)="log(['select',tab])"
+        (nzClick)="log(['click',tab])"
+        (nzDeselect)="log(['deselect',tab])">
+        这是内容{{tab}}
+      </nz-tab>
+    </nz-tabset>
+  </nz-form-item>
+  <!-- 发送时间单选按钮 -->
+  <nz-form-item *ngSwitchCase="'radio'">
+    <nz-form-label [nzSm]="5" [nzXs]="24" nzFor="{{_control.key}}" nzRequired={{_control.required}}>
+      <span>{{_control.label}}</span>
+    </nz-form-label>
+    <nz-form-control [nzSm]="16" [nzXs]="24">
+      <div class="send">
+          <input type= "radio"  value='0' id="immediate" formControlName="{{_control.key}}"  [(ngModel)]="setTime"  (click)='timed()'> <span>立即发送</span>
+      </div>
+      <div class="send">
+          <input type= "radio" value='1' id="delay" formControlName="{{_control.key}}" [(ngModel)]="setTime"  [checked]="checked"  (click)='timed()'> <span>定时发送</span>
+      </div>
+      <div class="send" *ngIf="setTime === '1'">
+          <nz-date-picker
+            nzShowTime
+            nzFormat="yyyy-MM-dd HH:mm"
+            nzPlaceHolder="选择发送时间"
+            (ngModelChange)="onChange($event)"
+            formControlName="{{_control.key}}"
+            (nzOnOk)="onOk($event)"
+          ></nz-date-picker>
+      </div>
+    </nz-form-control>
+  </nz-form-item>
+</form>

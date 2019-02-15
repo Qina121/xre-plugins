@@ -1,0 +1,13 @@
+<div [ngClass]= "{'maskOpa': maskOpaShow}" (click) = 'skip()'>
+    <div class="messagePosition">
+        <xma-message [opt] = 'optionsMessage' [maskOpaShow] = 'maskOpaShow' [messagearr] = 'messages' (animataOver)="deleArr()" *ngFor="let messages of messages; let i = index"></xma-message>
+    </div>
+</div>
+
+<div class="maskBox" *ngIf="maskShow" (click) = 'hide()'>
+    <div class="alertPosition">
+        <xma-alert [maskShow] = 'maskShow' [alertopt] = 'optionsAlert' (animataOver)="alertpop()" *ngFor="let alert of alert; let i = index"></xma-alert>
+    </div>
+</div>
+
+

@@ -1,0 +1,27 @@
+.two_level_prompt {
+  background: #1ab394;
+  color: #fff;
+  height: 47px;
+  line-height: 47px;
+  font-size: 17px;
+  padding-left: 23px;
+}
+.footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  border-top: 1px solid rgb(232, 232, 232);
+  padding: 10px 16px;
+  text-align: right;
+  left: 0px;
+  background: #fff;
+}
+::ng-deep .ant-drawer-header {
+  border:none;
+}
+::ng-deep .ant-drawer-title {
+  font-size: 22px;
+}
+::ng-deep .ant-drawer-body {
+  padding: 0;
+}

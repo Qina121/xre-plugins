@@ -1,0 +1,47 @@
+
+.userSetting {
+  position: absolute;
+  background: #fff;
+  width: 176px;
+  left: -120px;
+  line-height: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+#changePwd {
+  color: #1890ff;
+  cursor:pointer;
+}
+
+:host ::ng-deep .trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+:host ::ng-deep .trigger:hover {
+  color: #1890ff;
+}
+
+:host ::ng-deep .logo {
+  height: 43px;
+  margin: 16px;
+}
+:host ::ng-deep .ant-menu-dark .ant-menu-inline.ant-menu-sub {
+  background: rgb(41, 56, 70);
+  box-shadow: 0 2px 8px rgba(0,0,0,.45) inset;
+}
+:host ::ng-deep .ant-menu.ant-menu-dark .ant-menu-item-selected {
+  background: rgb(41, 56, 70);
+}
+::ng-deep .ant-menu-dark .ant-menu-sub {
+  background: rgb(41, 56, 70);
+}
+::ng-deep .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+  background: rgb(41, 56, 70);
+}
+
+

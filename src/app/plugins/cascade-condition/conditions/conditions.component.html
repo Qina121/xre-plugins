@@ -1,0 +1,21 @@
+<div class="row marginLeft-0" [class.condition-relation-line]="conditionNumber.length>1">
+  <div class="left" (click)="toggleAndOrTitle()" *ngIf="conditionNumber.length>1">
+    <span>{{andOrTitle}}</span>
+  </div>
+  <div class="right">
+    <xma-cascade-condition
+      *ngFor="let condition of conditionNumber;let conditionIndex = index;"
+      [fieldData]="fieldData"
+      [hasDelBtn]="hasDelBtn"
+      [moduleType]="moduleType"
+      [conditionIndex]="conditionIndex"
+      [conditionNumber]="conditionNumber"
+      [comparisonMap]="comparisonMap"
+      (addCondition)="addCondition(conditionIndex)"
+      (deleteCondition)="delCondition(conditionIndex)">
+    </xma-cascade-condition>
+  </div>
+
+
+
+
